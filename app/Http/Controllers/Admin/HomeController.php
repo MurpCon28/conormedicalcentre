@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Doctor;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,7 @@ class HomeController extends Controller
   public function __construct()
   {
       $this->middleware('auth');
-      $this->middleware('role:doctor');
+      $this->middleware('role:admin');
   }
 
   /**
@@ -25,6 +26,10 @@ class HomeController extends Controller
    */
   public function index()
   {
-      return view('doctor.home');
+
+    // $user = Auth::user();
+    // $user->authorizeRoles('admin');
+
+      return view('admin.home');
   }
 }

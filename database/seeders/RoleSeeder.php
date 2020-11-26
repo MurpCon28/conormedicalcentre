@@ -23,5 +23,10 @@ class RoleSeeder extends Seeder
       $role_patient->name = 'patient';
       $role_patient->description = 'A patient user';
       $role_patient->save();
+
+      $role_admin = new Role();
+      $role_admin->name = 'admin';
+      $role_admin->description = 'A admin user';
+      $role_admin->save();
     }
 }

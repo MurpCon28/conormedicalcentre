@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
     {
       $role_doctor = Role::where('name', 'doctor')->first();
       $role_patient = Role::where('name', 'patient')->first();
+      $role_admin = Role::where('name', 'admin')->first();
 
       $doctor = new User();
       $doctor->name = 'Conor Murphy';
@@ -36,5 +37,14 @@ class UserSeeder extends Seeder
       $patient->password = Hash::make('secret');
       $patient->save();
       $patient->roles()->attach($role_patient);
+
+      $admin = new User();
+      $admin->name = 'Harry John';
+      $admin->email = 'admin@conormedicalcentre.ie';
+      $admin->address = '23 Lane Park';
+      $admin->phone = '1325476980';
+      $admin->password = Hash::make('secret');
+      $admin->save();
+      $admin->roles()->attach($admin);
     }
 }
