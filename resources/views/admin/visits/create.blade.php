@@ -22,12 +22,20 @@
               <form method="POST" action="{{ route('admin.visits.store') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
-                  <label for="patientName">Patient Name</label>
-                  <input type="text" class="form-control" id="patientName" name="patientName" value="{{ old('patientName') }}">
+                  <label for="patient">Patient Name</label>
+                  <select name="patient_id">
+                    @foreach ($patients as $patient)
+                      <option value="{{ $patient->id }}" {{ (old('patient_id') == $patient->id) ? "selected" : "" }}>{{ $patient->user->name }}</option>
+                    @endforeach
+                  </select>
                 </div>
                 <div class="form-group">
-                  <label for="tidoctorNametle">Doctor Name</label>
-                  <input type="text" class="form-control" id="doctorName" name="doctorName" value="{{ old('doctorName') }}">
+                  <label for="doctor">Doctor Name</label>
+                  <select name="doctor_id">
+                    @foreach ($doctors as $doctor)
+                      <option value="{{ $doctor->id }}" {{ (old('doctor_id') == $doctor->id) ? "selected" : "" }}>{{ $doctor->user->name }}</option>
+                    @endforeach
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="dateTime">Date Time</label>
@@ -38,7 +46,7 @@
                   <input type="text" class="form-control" id="duration" name="duration" value="{{ old('duration') }}">
                 </div>
                 <div class="form-group">
-                  <label for="cost">Cost</label>
+                  <label for="cost">Cost in Euros</label>
                   <input type="text" class="form-control" id="cost" name="cost" value="{{ old('cost') }}">
                 </div>
                 <div class="float-right">

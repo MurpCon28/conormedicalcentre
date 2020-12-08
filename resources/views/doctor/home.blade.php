@@ -15,6 +15,20 @@
                     @endif
 
                     {{ __('You are logged in as a doctor!') }}
+                    <br>
+                    <a href="{{ route('doctor.visits.index') }}"> Visits </a>
+
+                    <br>
+                    <br>
+                    <b>Hi, {{ Auth::user()->name }}</b>
+                    <br>
+                    <b>Email:</b> {{ Auth::user()->email }}
+                    <br>
+                    <b>Address:</b> {{ Auth::user()->address }}
+                    <br>
+                    <b>Phone:</b> {{ Auth::user()->phone }}
+                    <br>
+                    <b>Date Started Working:</b> {{ Auth::user()->doctor->date_started }}
                 </div>
             </div>
         </div>

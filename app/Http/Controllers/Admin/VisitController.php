@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Visit;
+use App\Models\Patient;
+use App\Models\Doctor;
 
 class VisitController extends Controller
 {
@@ -40,7 +42,13 @@ class VisitController extends Controller
      */
     public function create()
     {
-        return view('admin.visits.create');
+      $patients = Patient::all();
+      $doctors = Doctor::all();
+
+      return view('admin.visits.create', [
+        'patients' => $patients,
+        'doctors' => $doctors
+      ]);
     }
 
     /**
@@ -52,16 +60,16 @@ class VisitController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-        'patientName' => 'required|max:191',
-        'doctorName' => 'required|max:191',
+        'patient_id' => 'required|max:191',
+        'doctor_id' => 'required|max:191',
         'dateTime' => 'required',
         'duration' => 'required|integer|min:1',
         'cost' => 'required|numeric|min:0'
       ]);
 
       $visit = new Visit();
-      $visit->patientName = $request->input('patientName');
-      $visit->doctorName = $request->input('doctorName');
+      $visit->patient_id = $request->input('patient_id');
+      $visit->doctor_id = $request->input('doctor_id');
       $visit->dateTime = $request->input('dateTime');
       $visit->duration = $request->input('duration');
       $visit->cost = $request->input('cost');
@@ -95,9 +103,13 @@ class VisitController extends Controller
     public function edit($id)
     {
       $visit = Visit::findOrFail($id);
+      $patients = Patient::all();
+      $doctors = Doctor::all();
 
       return view('admin.visits.edit', [
-        'visit' => $visit
+        'visit' => $visit,
+        'patients' => $patients,
+        'doctors' => $doctors
       ]);
     }
 
@@ -111,16 +123,16 @@ class VisitController extends Controller
     public function update(Request $request, $id)
     {
       $request->validate([
-        'patientName' => 'required|max:191',
-        'doctorName' => 'required|max:191',
+        'patient_id' => 'required|max:191',
+        'doctor_id' => 'required|max:191',
         'dateTime' => 'required',
         'duration' => 'required|integer|min:1',
         'cost' => 'required|numeric|min:0'
       ]);
 
       $visit = Visit::findOrFail($id);
-      $visit->patientName = $request->input('patientName');
-      $visit->doctorName = $request->input('doctorName');
+      $visit->patient_id = $request->input('patient_id');
+      $visit->doctor_id = $request->input('doctor_id');
       $visit->dateTime = $request->input('dateTime');
       $visit->duration = $request->input('duration');
       $visit->cost = $request->input('cost');

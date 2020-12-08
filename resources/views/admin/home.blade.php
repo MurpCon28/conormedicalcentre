@@ -15,6 +15,18 @@
                     @endif
 
                     {{ __('You are logged in as an admin!') }}
+                    <br>
+                    <a href="{{ route('admin.visits.index') }}"> Visits </a>
+
+                    <br>
+                    <br>
+                    <b>Hi, {{ Auth::user()->name }}</b>
+                    <br>
+                    <b>Email:</b> {{ Auth::user()->email }}
+                    <br>
+                    <b>Address:</b> {{ Auth::user()->address }}
+                    <br>
+                    <b>Phone:</b> {{ Auth::user()->phone }}
                 </div>
             </div>
         </div>

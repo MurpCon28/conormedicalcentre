@@ -14,22 +14,22 @@
                 <tbody>
                         <tr>
                             <td>Patient Name</td>
-                            <td>{{ $visit->patientName }}</td>
+                            <td>{{ $visit->patient->user->name }}</td>
                         </tr>
                         <tr>
                             <td>Doctor Name</td>
-                            <td>{{ $visit->doctorName }}</td>
+                            <td>{{ $visit->doctor->user->name }}</td>
                         </tr>
                         <tr>
                             <td>Date & Time</td>
                             <td>{{ $visit->dateTime }}</td>
                         </tr>
                         <tr>
-                            <td>Duration</td>
+                            <td>Duration in Hours</td>
                             <td>{{ $visit->duration }}</td>
                         </tr>
                         <tr>
-                            <td>Cost</td>
+                            <td>Cost in Euros</td>
                             <td>{{ $visit->cost }}</td>
                         </tr>
               </tbody>

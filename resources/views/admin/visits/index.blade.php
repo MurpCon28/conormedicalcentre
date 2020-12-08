@@ -22,15 +22,15 @@
                     <th>Patient Name</th>
                     <th>Doctor Name</th>
                     <th>Date & Time</th>
-                    <th>Duration</th>
-                    <th>Cost</th>
+                    <th>Duration in Hours</th>
+                    <th>Cost in Euros</th>
                     <th>Actions</th>
                   </thead>
                   <tbody>
               @foreach ($visits as $visit)
                     <tr data-id="{{ $visit->id }}">
-                      <td>{{ $visit->patientName }}</td>
-                      <td>{{ $visit->doctorName }}</td>
+                      <td>{{ $visit->patient->user->name }}</td>
+                      <td>{{ $visit->doctor->user->name }}</td>
                       <td>{{ $visit->dateTime }}</td>
                       <td>{{ $visit->duration }}</td>
                       <td>{{ $visit->cost }}</td>
