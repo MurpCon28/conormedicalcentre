@@ -16,9 +16,6 @@
 
                     {{ __('You are logged in as an admin!') }}
                     <br>
-                    <a href="{{ route('admin.visits.index') }}"> Visits </a>
-
-                    <br>
                     <br>
                     <b>Hi, {{ Auth::user()->name }}</b>
                     <br>

@@ -12,26 +12,27 @@
             <div class="class-body">
               <table class="table table-hover">
                 <tbody>
-                        <tr>
-                            <td>Patient Name</td>
-                            <td>{{ $visit->patientName }}</td>
-                        </tr>
-                        <tr>
-                            <td>Doctor Name</td>
-                            <td>{{ $visit->doctorName }}</td>
-                        </tr>
-                        <tr>
-                            <td>Date & Time</td>
-                            <td>{{ $visit->dateTime }}</td>
-                        </tr>
-                        <tr>
-                            <td>Duration</td>
-                            <td>{{ $visit->duration }}</td>
-                        </tr>
-                        <tr>
-                            <td>Cost</td>
-                            <td>{{ $visit->cost }}</td>
-                        </tr>
+                  <tr>
+                      <tr>
+                          <td>Patient Name</td>
+                          <td>{{ $visit->patient->user->name }}</td>
+                      </tr>
+                      <tr>
+                          <td>Doctor Name</td>
+                          <td>{{ $visit->doctor->user->name }}</td>
+                      </tr>
+                      <tr>
+                          <td>Date & Time</td>
+                          <td>{{ $visit->dateTime }}</td>
+                      </tr>
+                      <tr>
+                          <td>Duration in Hours</td>
+                          <td>{{ $visit->duration }}</td>
+                      </tr>
+                      <tr>
+                          <td>Cost in Euros</td>
+                          <td>{{ $visit->cost }}</td>
+                      </tr>
               </tbody>
             </table>
 

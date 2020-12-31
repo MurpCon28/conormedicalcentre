@@ -28,8 +28,8 @@
                   <tbody>
               @foreach ($visits as $visit)
                     <tr data-id="{{ $visit->id }}">
-                      <td>{{ $visit->patientName }}</td>
-                      <td>{{ $visit->doctorName }}</td>
+                      <td>{{ $visit->patient->user->name }}</td>
+                      <td>{{ $visit->doctor->user->name }}</td>
                       <td>{{ $visit->dateTime }}</td>
                       <td>{{ $visit->duration }}</td>
                       <td>{{ $visit->cost }}</td>
