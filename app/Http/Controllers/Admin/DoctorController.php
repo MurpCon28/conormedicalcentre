@@ -24,6 +24,7 @@ class DoctorController extends Controller
     }
     public function index()
     {
+      // $doctors = User::all()->where('name', $roles);
       $doctors = User::all();
 
       return view('admin.doctors.index', [

@@ -11,6 +11,8 @@ use App\Http\Controllers\Doctor\HomeController as DoctorHomeController;
 use App\Http\Controllers\Patient\HomeController as PatientHomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 
+use App\Http\Controllers\Doctor\DoctorsController as DoctorDoctorsController;
+use App\Http\Controllers\Patient\PatientsController as PatientPatientsController;
 use App\Http\Controllers\Admin\DoctorController as AdminDoctorController;
 use App\Http\Controllers\Admin\PatientController as AdminPatientController;
 
@@ -49,6 +51,12 @@ Route::post('/admin/visits/store', [AdminVisitController::class, 'store'])->name
 Route::get('/admin/visits/{id}/edit', [AdminVisitController::class, 'edit'])->name('admin.visits.edit');
 Route::put('/admin/visits/{id}', [AdminVisitController::class, 'update'])->name('admin.visits.update');
 Route::delete('/admin/visits/{id}', [AdminVisitController::class, 'destroy'])->name('admin.visits.destroy');
+
+Route::get('/doctor/doctors/', [DoctorDoctorsController::class, 'index'])->name('doctor.doctors.index');
+Route::get('/doctor/doctors/{id}', [DoctorDoctorsController::class, 'show'])->name('doctor.doctors.show');
+
+Route::get('/patient/patients/', [PatientPatientsController::class, 'index'])->name('admin.patients.index');
+Route::get('/patient/patients/{id}', [PatientPatientsController::class, 'show'])->name('admin.patients.show');
 
 Route::get('/admin/doctors/', [AdminDoctorController::class, 'index'])->name('admin.doctors.index');
 Route::get('/admin/doctors/create', [AdminDoctorController::class, 'create'])->name('admin.doctors.create');

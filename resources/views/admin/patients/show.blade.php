@@ -6,7 +6,9 @@
       <div class="col-md-8 col-md-offset-2">
         <div class="card">
           <div class="card-header">
-              Patient: {{ $patient->id }}
+              Patient: {{ $patient->name }}
+              <br>
+              ID: {{ $patient->id }}
             </div>
 
             <div class="class-body">
@@ -30,15 +32,15 @@
                         </tr>
                         <tr>
                             <td>Insurance</td>
-                            {{-- <td>{{ $patient->patient->user->insurance }}</td> --}}
+                            <td>{{ $patient->patient->insurance }}</td>
                         </tr>
                         <tr>
                             <td>Insurance Company</td>
-                            {{-- <td>{{ $patient->patient->user->insurance_company }}</td> --}}
+                            <td>{{ $patient->patient->insurance_company }}</td>
                         </tr>
                         <tr>
                             <td>Policy Number</td>
-                            {{-- <td>{{ $patient->patient->user->policy_number }}</td> --}}
+                            <td>{{ $patient->patient->policy_number }}</td>
                         </tr>
               </tbody>
             </table>
@@ -54,5 +56,47 @@
         </div>
       </div>
     </div>
+    {{-- <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="card">
+          <div class="card-header">
+              Visits
+            </div>
+
+            <div class="class-body">
+              <table class="table table-hover">
+                <tbody>
+                        <tr>
+                            <td>Patient Name</td>
+                            <td>{{ $visit->patient->user->name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Doctor Name</td>
+                            <td>{{ $visit->doctor->user->name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Date & Time</td>
+                            <td>{{ $visit->dateTime }}</td>
+                        </tr>
+                        <tr>
+                            <td>Duration in Hours</td>
+                            <td>{{ $visit->duration }}</td>
+                        </tr>
+                        <tr>
+                            <td>Cost in Euros</td>
+                            <td>{{ $visit->cost }}</td>
+                        </tr>
+              </tbody>
+            </table>
+            <a href="{{ route('admin.visits.edit', $visit->id) }}" class="btn btn-warning">Edit</a>
+            <form style="display:inline-block" method="POST" action="{{ route('admin.visits.destroy', $visit->id) }}">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button type="submit" class="form-control btn btn-danger">Delete</a>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div> --}}
   </div>
 @endsection
