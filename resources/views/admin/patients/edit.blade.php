@@ -24,35 +24,35 @@
                 <input type="hidden" name="_method" value="PUT">
                 <div class="form-group">
                   <label for="patient">Patient Name</label>
-                  <input type="text" class="form-control" id="patient" name="patient" value="{{ old('patient', $patient->name) }}">
+                  <input type="text" class="form-control" id="patient" name="patient" value="{{ old('patient', $patient->user->name) }}">
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
-                  <input type="text" class="form-control" id="password" name="password" value="{{ old('password', $patient->password) }}">
+                  <input type="text" class="form-control" id="password" name="password" value="{{ old('password', $patient->user->password) }}">
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input type="text" class="form-control" id="email" name="email" value="{{ old('email', $patient->email) }}">
+                  <input type="text" class="form-control" id="email" name="email" value="{{ old('email', $patient->user->email) }}">
                 </div>
                 <div class="form-group">
                   <label for="address">Address</label>
-                  <input type="text" class="form-control" id="address" name="address" value="{{ old('address', $patient->address) }}">
+                  <input type="text" class="form-control" id="address" name="address" value="{{ old('address', $patient->user->address) }}">
                 </div>
                 <div class="form-group">
                   <label for="phone">Phone</label>
-                  <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone', $patient->phone) }}">
+                  <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone', $patient->user->phone) }}">
                 </div>
                 <div class="form-group">
                   <label for="insurance">Insurance</label>
-                  {{-- <input type="boolean" class="form-control" id="insurance" name="insurance" value="{{ old('insurance', $patient->$patient->user->insurance) }}"> --}}
+                  <input type="text" class="form-control" id="insurance" name="insurance" value="{{ old('insurance', $patient->insurance) }}">
                 </div>
                 <div class="form-group">
                   <label for="insurance_company">Insurance Company</label>
-                  {{-- <input type="text" class="form-control" id="insurance_company" name="insurance_company" value="{{ old('insurance_company', $patient->$patient->user->insurance_company) }}"> --}}
+                  <input type="text" class="form-control" id="insurance_company" name="insurance_company" value="{{ old('insurance_company', $patient->insurance_company) }}">
                 </div>
                 <div class="form-group">
                   <label for="policy_number">Policy Number</label>
-                  {{-- <input type="text" class="form-control" id="policy_number" name="policy_number" value="{{ old('policy_number', $patient->$patient->user->policy_number) }}"> --}}
+                  <input type="text" class="form-control" id="policy_number" name="policy_number" value="{{ old('policy_number', $patient->policy_number) }}">
                 </div>
                 <div class="float-right">
                   <a href="{{ route('admin.patients.index') }}" class="btn btn-default">Cancel</a>

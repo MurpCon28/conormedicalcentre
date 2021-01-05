@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Doctor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Visit;
+use Auth;
 
 class VisitController extends Controller
 {
@@ -18,7 +19,7 @@ class VisitController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('role:doctor,patient,admin');
+        $this->middleware('role:doctor');
     }
 
     /**
@@ -29,6 +30,7 @@ class VisitController extends Controller
     public function index()
     {
       $visits = Visit::all();
+      // $visits = Auth::user()->visits;
 
       return view('doctor.visits.index', [
         'visits' => $visits

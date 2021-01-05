@@ -32,13 +32,13 @@
               @foreach ($patients as $patient)
                     <tr data-id="{{ $patient->id }}">
                       {{-- <td>{{ $doctor->doctor->user->name }}</td> --}}
-                      <td>{{ $patient->name }}</td>
-                      <td>{{ $patient->email }}</td>
-                      <td>{{ $patient->address }}</td>
-                      <td>{{ $patient->phone }}</td>
-                      {{-- <td>{{ $patient->patient->user->insurance }}</td>
-                      <td>{{ $patient->patient->user->insurance_company }}</td>
-                      <td>{{ $patient->patient->user->policy_number }}</td> --}}
+                      <td>{{ $patient->user->name }}</td>
+                      <td>{{ $patient->user->email }}</td>
+                      <td>{{ $patient->user->address }}</td>
+                      <td>{{ $patient->user->phone }}</td>
+                      <td>{{ $patient->insurance }}</td>
+                      <td>{{ $patient->insurance_company }}</td>
+                      <td>{{ $patient->policy_number }}</td>
                       <td>
                           <a href="{{ route('admin.patients.show', $patient->id) }}" class="btn btn-primary">View</a>
                           <a href="{{ route('admin.patients.edit', $patient->id) }}" class="btn btn-warning">Edit</a>

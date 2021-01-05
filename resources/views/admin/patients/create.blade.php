@@ -22,8 +22,8 @@
               <form method="POST" action="{{ route('admin.patients.store') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
-                  <label for="patient">Patient Name</label>
-                  <input type="text" class="form-control" id="patient" name="patient" value="{{ old('patient') }}">
+                  <label for="name">Patient Name</label>
+                  <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
                 </div>
                 <div class="form-group">
                   <label for="password">Password</label>
@@ -43,7 +43,11 @@
                 </div>
                 <div class="form-group">
                   <label for="insurance">Insurance</label>
-                  <input type="boolean" class="form-control" id="insurance" name="insurance" value="{{ old('insurance') }}">
+                  {{-- <select name="insurance">
+                      <option value="insurance">Yes</option>
+                      <option value="insurance">No</option>
+                  </select> --}}
+                  <input type="text" class="form-control" id="insurance" name="insurance" value="{{ old('insurance') }}">
                 </div>
                 <div class="form-group">
                   <label for="insurance_company">Insurance Company</label>

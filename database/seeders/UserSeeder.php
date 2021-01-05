@@ -47,7 +47,7 @@ class UserSeeder extends Seeder
       $patient->roles()->attach($role_patient);
 
       $patient_info = new Patient();
-      $patient_info->insurance = true;
+      $patient_info->insurance = "Yes";
       $patient_info->insurance_company = 'Gavin & Sons Insurance';
       $patient_info->policy_number = '12346621901234';
       $patient_info->user_id = $patient->id;
@@ -72,7 +72,7 @@ class UserSeeder extends Seeder
       $patient->roles()->attach($role_patient);
 
       $patient_info = new Patient();
-      $patient_info->insurance = true;
+      $patient_info->insurance = "Yes";
       $patient_info->insurance_company = 'Gavin & Sons Insurance';
       $patient_info->policy_number = '12345678901234';
       $patient_info->user_id = $patient->id;
@@ -102,7 +102,7 @@ class UserSeeder extends Seeder
       $patient->roles()->attach($role_patient);
 
       $patient_info = new Patient();
-      $patient_info->insurance = true;
+      $patient_info->insurance = "Yes";
       $patient_info->insurance_company = 'Chill Insurance';
       $patient_info->policy_number = '43210987654321';
       $patient_info->user_id = $patient->id;

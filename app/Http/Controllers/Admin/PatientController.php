@@ -8,6 +8,7 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Patient;
 use App\Models\Doctor;
+use App\Models\Visit;
 
 
 class PatientController extends Controller
@@ -24,7 +25,7 @@ class PatientController extends Controller
     }
     public function index()
     {
-      $patients = User::all();
+      $patients = Patient::all();
 
       return view('admin.patients.index', [
         'patients' => $patients
@@ -38,7 +39,7 @@ class PatientController extends Controller
      */
     public function create()
     {
-      $patients = User::all();
+      $patients = Patient::all();
 
       return view('admin.patients.create', [
         'patients' => $patients
@@ -59,7 +60,9 @@ class PatientController extends Controller
         'address' => 'required|max:191',
         'phone' => 'required|max:191',
         'password' => 'required|max:191',
-        'date_started' => 'required'
+        'insurance' => 'required',
+        'insurance_company' => 'required|max:191',
+        'policy_number' => 'required|max:191'
       ]);
       $role_patient = Role::where('name', 'patient')->first();
 
@@ -88,7 +91,7 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-      $patient = User::findOrFail($id);
+      $patient = Patient::findOrFail($id);
 
       return view('admin.patients.show', [
         'patient' => $patient
@@ -103,7 +106,7 @@ class PatientController extends Controller
      */
     public function edit($id)
     {
-      $patient = User::findOrFail($id);
+      $patient = Patient::findOrFail($id);
 
       return view('admin.patients.edit', [
         'patient' => $patient
@@ -125,7 +128,9 @@ class PatientController extends Controller
         'address' => 'required|max:191',
         'phone' => 'required|max:191',
         'password' => 'required|max:191',
-        'date_started' => 'required'
+        'insurance' => 'required',
+        'insurance_company' => 'required|max:191',
+        'policy_number' => 'required|max:191'
 
       ]);
       $role_patient = Role::where('name', 'patient')->first();
@@ -157,7 +162,7 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-      $patient = User::findOrFail($id);
+      $patient = Patient::findOrFail($id);
       $patient->delete();
 
       return redirect()->route('admin.patients.index');

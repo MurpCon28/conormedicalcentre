@@ -8,6 +8,7 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Patient;
 use App\Models\Doctor;
+use App\Models\Visit;
 
 
 class DoctorController extends Controller
@@ -25,7 +26,7 @@ class DoctorController extends Controller
     public function index()
     {
       // $doctors = User::all()->where('name', $roles);
-      $doctors = User::all();
+      $doctors = Doctor::all();
 
       return view('admin.doctors.index', [
         'doctors' => $doctors
@@ -39,7 +40,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-      $doctors = User::all();
+      $doctors = Doctor::all();
 
       return view('admin.doctors.create', [
         'doctors' => $doctors
@@ -90,7 +91,7 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-      $doctor = User::findOrFail($id);
+      $doctor = Doctor::findOrFail($id);
 
       return view('admin.doctors.show', [
         'doctor' => $doctor
@@ -105,7 +106,7 @@ class DoctorController extends Controller
      */
     public function edit($id)
     {
-      $doctor = User::findOrFail($id);
+      $doctor = Doctor::findOrFail($id);
 
       return view('admin.doctors.edit', [
         'doctor' => $doctor
@@ -157,7 +158,7 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-      $doctor = User::findOrFail($id);
+      $doctor = Doctor::findOrFail($id);
       $doctor->delete();
 
       return redirect()->route('admin.doctors.index');

@@ -6,7 +6,7 @@
       <div class="col-md-8 col-md-offset-2">
         <div class="card">
           <div class="card-header">
-              Doctor: {{ $doctor->name }}
+              Doctor: {{ $doctor->user->name }}
               <br>
               ID: {{ $doctor->id }}
             </div>
@@ -16,23 +16,23 @@
                 <tbody>
                         <tr>
                             <td>Doctor Name</td>
-                            <td>{{ $doctor->name }}</td>
+                            <td>{{ $doctor->user->name }}</td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td>{{ $doctor->email }}</td>
+                            <td>{{ $doctor->user->email }}</td>
                         </tr>
                         <tr>
                             <td>Address</td>
-                            <td>{{ $doctor->address }}</td>
+                            <td>{{ $doctor->user->address }}</td>
                         </tr>
                         <tr>
                             <td>Phone</td>
-                            <td>{{ $doctor->phone }}</td>
+                            <td>{{ $doctor->user->phone }}</td>
                         </tr>
                         <tr>
                             <td>Date Started Working</td>
-                            <td>{{ $doctor->doctor->date_started  }}</td>
+                            <td>{{ $doctor->date_started  }}</td>
                         </tr>
               </tbody>
             </table>

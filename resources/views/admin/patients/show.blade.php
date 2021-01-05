@@ -6,7 +6,7 @@
       <div class="col-md-8 col-md-offset-2">
         <div class="card">
           <div class="card-header">
-              Patient: {{ $patient->name }}
+              Patient: {{ $patient->user->name }}
               <br>
               ID: {{ $patient->id }}
             </div>
@@ -16,31 +16,31 @@
                 <tbody>
                         <tr>
                             <td>Doctor Name</td>
-                            <td>{{ $patient->name }}</td>
+                            <td>{{ $patient->user->name }}</td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td>{{ $patient->email }}</td>
+                            <td>{{ $patient->user->email }}</td>
                         </tr>
                         <tr>
                             <td>Address</td>
-                            <td>{{ $patient->address }}</td>
+                            <td>{{ $patient->user->address }}</td>
                         </tr>
                         <tr>
                             <td>Phone</td>
-                            <td>{{ $patient->phone }}</td>
+                            <td>{{ $patient->user->phone }}</td>
                         </tr>
                         <tr>
                             <td>Insurance</td>
-                            <td>{{ $patient->patient->insurance }}</td>
+                            <td>{{ $patient->insurance }}</td>
                         </tr>
                         <tr>
                             <td>Insurance Company</td>
-                            <td>{{ $patient->patient->insurance_company }}</td>
+                            <td>{{ $patient->insurance_company }}</td>
                         </tr>
                         <tr>
                             <td>Policy Number</td>
-                            <td>{{ $patient->patient->policy_number }}</td>
+                            <td>{{ $patient->policy_number }}</td>
                         </tr>
               </tbody>
             </table>
