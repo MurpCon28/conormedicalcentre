@@ -23,7 +23,7 @@
                     <th>Email</th>
                     <th>Address</th>
                     <th>Phone</th>
-                    <th>Date Started</th>
+                    <th>Date Started Working (Y-D-M)</th>
                     <th>Actions</th>
                   </thead>
                   <tbody>

@@ -92,9 +92,11 @@ class DoctorController extends Controller
     public function show($id)
     {
       $doctor = Doctor::findOrFail($id);
+      $visit = Visit::findOrFail($id);
 
       return view('admin.doctors.show', [
-        'doctor' => $doctor
+        'doctor' => $doctor,
+        'visit' => $visit
       ]);
     }
 
@@ -142,7 +144,7 @@ class DoctorController extends Controller
       $doctor->save();
       $doctor->roles()->attach($role_doctor);
 
-      $doctor_info = new Doctor();
+      $doctor_info = Doctor::findOrFail($id);
       $doctor_info->date_started = $request->input('date_started');
       $doctor_info->user_id = $doctor->id;
       $doctor_info->save();

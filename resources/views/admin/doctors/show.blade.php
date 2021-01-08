@@ -31,7 +31,7 @@
                             <td>{{ $doctor->user->phone }}</td>
                         </tr>
                         <tr>
-                            <td>Date Started Working</td>
+                            <td>Date Started Working (Y-D-M)</td>
                             <td>{{ $doctor->date_started  }}</td>
                         </tr>
               </tbody>
@@ -48,7 +48,11 @@
         </div>
       </div>
     </div>
-    {{-- <div class="row">
+    
+    <br>
+    <br>
+
+    <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="card">
           <div class="card-header">
@@ -89,6 +93,6 @@
           </div>
         </div>
       </div>
-    </div> --}}
+    </div>
   </div>
 @endsection

@@ -87,7 +87,7 @@ class RegisterController extends Controller
         $user->roles()->attach(Role::where('name', 'patient')->first());
 
         $patient_info = new Patient();
-        $patient_info->insurance = true;
+        $patient_info->insurance = "Yes";
         $patient_info->insurance_company = 'Irish Health Insurance';
         $patient_info->policy_number = '12348853901234';
         $patient_info->user_id = $user->id;

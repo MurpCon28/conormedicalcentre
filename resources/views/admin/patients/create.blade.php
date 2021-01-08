@@ -42,7 +42,7 @@
                   <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}">
                 </div>
                 <div class="form-group">
-                  <label for="insurance">Insurance</label>
+                  <label for="insurance">Insurance (Yes/No)</label>
                   {{-- <select name="insurance">
                       <option value="insurance">Yes</option>
                       <option value="insurance">No</option>

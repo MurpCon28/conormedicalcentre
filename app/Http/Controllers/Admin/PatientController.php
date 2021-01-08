@@ -62,7 +62,7 @@ class PatientController extends Controller
         'password' => 'required|max:191',
         'insurance' => 'required',
         'insurance_company' => 'required|max:191',
-        'policy_number' => 'required|max:191'
+        'policy_number' => 'required|max:14'
       ]);
       $role_patient = Role::where('name', 'patient')->first();
 
@@ -81,6 +81,8 @@ class PatientController extends Controller
       $patient_info->policy_number = $request->input('policy_number');
       $patient_info->user_id = $patient->id;
       $patient_info->save();
+
+      return redirect()->route('admin.patients.index');
     }
 
     /**
@@ -92,9 +94,11 @@ class PatientController extends Controller
     public function show($id)
     {
       $patient = Patient::findOrFail($id);
+      $visit = Visit::findOrFail($id);
 
       return view('admin.patients.show', [
-        'patient' => $patient
+        'patient' => $patient,
+        'visit' => $visit
       ]);
     }
 
@@ -144,7 +148,7 @@ class PatientController extends Controller
       $patient->save();
       $patient->roles()->attach($role_patient);
 
-      $patient_info = new Patient();
+      $patient_info = Patient::findOrFail($id);
       $patient_info->insurance = $request->input('insurance');
       $patient_info->insurance_company = $request->input('insurance_company');
       $patient_info->policy_number = $request->input('policy_number');

@@ -43,7 +43,7 @@
                   <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone', $patient->user->phone) }}">
                 </div>
                 <div class="form-group">
-                  <label for="insurance">Insurance</label>
+                  <label for="insurance">Insurance (Yes/No)</label>
                   <input type="text" class="form-control" id="insurance" name="insurance" value="{{ old('insurance', $patient->insurance) }}">
                 </div>
                 <div class="form-group">
