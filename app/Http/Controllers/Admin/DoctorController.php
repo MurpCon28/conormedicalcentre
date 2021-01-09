@@ -92,6 +92,7 @@ class DoctorController extends Controller
     public function show($id)
     {
       $doctor = Doctor::findOrFail($id);
+      // $visit = Visit::findOrFail($vid)->where($vid = $id);
       $visit = Visit::findOrFail($id);
 
       return view('admin.doctors.show', [
