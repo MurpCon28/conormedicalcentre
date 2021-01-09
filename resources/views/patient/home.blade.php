@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('patient.layouts.app')
 
 @section('content')
 <div class="container">
@@ -15,8 +15,6 @@
                     @endif
 
                     {{ __('You are logged in as a patient!') }}
-                    <br>
-                    <a href="{{ route('patient.visits.index') }}"> Visits </a>
 
                     <br>
                     <br>

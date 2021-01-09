@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('patient.layouts.app')
 
 @section('content')
   <div class="container">
@@ -10,7 +10,6 @@
           <div class="card">
             <div class="card-header">
               Patients
-              <a href="{{ route('admin.patients.create') }}" class="btn btn-primary float-right">Add</a>
             </div>
 
             <div class="card-body">
@@ -31,7 +30,6 @@
                   <tbody>
               @foreach ($patients as $patient)
                     <tr data-id="{{ $patient->id }}">
-                      {{-- <td>{{ $doctor->doctor->user->name }}</td> --}}
                       <td>{{ $patient->user->name }}</td>
                       <td>{{ $patient->user->email }}</td>
                       <td>{{ $patient->user->address }}</td>
@@ -40,15 +38,7 @@
                       <td>{{ $patient->insurance_company }}</td>
                       <td>{{ $patient->policy_number }}</td>
                       <td>
-                          <a href="{{ route('admin.patients.show', $patient->id) }}" class="btn btn-primary">View</a>
-                          <br>
-                          <a href="{{ route('admin.patients.edit', $patient->id) }}" class="btn btn-warning">Edit</a>
-                          <br>
-                          <form style="display:inline-block" method="POST" action="{{ route('admin.patients.destroy', $patient->id) }}">
-                              <input type="hidden" name="_method" value="DELETE">
-                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                              <button type="submit" class="form-control btn btn-danger">Delete</a>
-                        </form>
+                          <a href="{{ route('patient.patients.show', $patient->id) }}" class="btn btn-primary">View</a>
                       </td>
                     </tr>
                   @endforeach

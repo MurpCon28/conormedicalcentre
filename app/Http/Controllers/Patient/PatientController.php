@@ -8,8 +8,9 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Patient;
 use App\Models\Doctor;
+use App\Models\Visit;
 
-class PatientPatientsController extends Controller
+class PatientController extends Controller
 {
   /**
    * Create a new controller instance.
@@ -60,9 +61,11 @@ class PatientPatientsController extends Controller
     public function show($id)
     {
       $patient = Patient::findOrFail($id);
+      $visit = Visit::findOrFail($id);
 
       return view('patient.patients.show', [
-        'patient' => $patient
+        'patient' => $patient,
+        'visit' => $visit
       ]);
     }
 

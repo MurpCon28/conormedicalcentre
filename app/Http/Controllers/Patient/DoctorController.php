@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Doctor;
+namespace App\Http\Controllers\Patient;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -20,14 +20,13 @@ class DoctorController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('role:doctor');
+        $this->middleware('role:patient');
     }
-
     public function index()
     {
       $doctors = Doctor::all();
 
-      return view('doctor.doctors.index', [
+      return view('patient.doctors.index', [
         'doctors' => $doctors
       ]);
     }
@@ -64,7 +63,7 @@ class DoctorController extends Controller
       $doctor = Doctor::findOrFail($id);
       $visit = Visit::findOrFail($id);
 
-      return view('doctor.doctors.show', [
+      return view('patient.doctors.show', [
         'doctor' => $doctor,
         'visit' => $visit
       ]);

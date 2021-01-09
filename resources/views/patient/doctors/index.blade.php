@@ -9,32 +9,32 @@
 
           <div class="card">
             <div class="card-header">
-              Visits
+              Doctors
             </div>
 
             <div class="card-body">
-              @if (count($visits) == 0)
-                <p>There were no visits!</p>
+              @if (count($doctors) == 0)
+                <p>There are no doctors!</p>
               @else
                 <table id="table-books" class="table table-hover">
                   <thead>
-                    <th>Patient Name</th>
                     <th>Doctor Name</th>
-                    <th>Date & Time</th>
-                    <th>Duration</th>
-                    <th>Cost</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Date Started Working (Y-D-M)</th>
                     <th>Actions</th>
                   </thead>
                   <tbody>
-              @foreach ($visits as $visit)
-                    <tr data-id="{{ $visit->id }}">
-                      <td>{{ $visit->patient->user->name }}</td>
-                      <td>{{ $visit->doctor->user->name }}</td>
-                      <td>{{ $visit->dateTime }}</td>
-                      <td>{{ $visit->duration }}</td>
-                      <td>{{ $visit->cost }}</td>
+              @foreach ($doctors as $doctor)
+                    <tr data-id="{{ $doctor->id }}">
+                      <td>{{ $doctor->user->name }}</td>
+                      <td>{{ $doctor->user->email }}</td>
+                      <td>{{ $doctor->user->address }}</td>
+                      <td>{{ $doctor->user->phone }}</td>
+                      <td> {{ $doctor->date_started  }} </td>
                       <td>
-                          <a href="{{ route('patient.visits.show', $visit->id) }}" class="btn btn-primary">View</a>
+                          <a href="{{ route('patient.doctors.show', $doctor->id) }}" class="btn btn-primary">View</a>
                       </td>
                     </tr>
                   @endforeach
@@ -45,5 +45,6 @@
         </div>
       </div>
     </div>
+
   </div>
 @endsection

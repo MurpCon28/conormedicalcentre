@@ -10,13 +10,8 @@ use App\Models\Patient;
 use App\Models\Doctor;
 use App\Models\Visit;
 
-class DoctorController extends Controller
+class PatientController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -25,10 +20,10 @@ class DoctorController extends Controller
 
     public function index()
     {
-      $doctors = Doctor::all();
+      $patients = Patient::all();
 
-      return view('doctor.doctors.index', [
-        'doctors' => $doctors
+      return view('doctor.patients.index', [
+        'patients' => $patients
       ]);
     }
 
@@ -61,11 +56,11 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-      $doctor = Doctor::findOrFail($id);
+      $patient = Patient::findOrFail($id);
       $visit = Visit::findOrFail($id);
 
-      return view('doctor.doctors.show', [
-        'doctor' => $doctor,
+      return view('doctor.patients.show', [
+        'patient' => $patient,
         'visit' => $visit
       ]);
     }
