@@ -94,11 +94,11 @@ class PatientController extends Controller
     public function show($id)
     {
       $patient = Patient::findOrFail($id);
-      $visit = Visit::findOrFail($id);
+      // $visit = Visit::findOrFail($id);
 
       return view('admin.patients.show', [
-        'patient' => $patient,
-        'visit' => $visit
+        'patient' => $patient
+        // 'visit' => $visit
       ]);
     }
 
