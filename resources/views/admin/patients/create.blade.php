@@ -50,11 +50,11 @@
                   <input type="text" class="form-control" id="insurance" name="insurance" value="{{ old('insurance') }}">
                 </div>
                 <div class="form-group">
-                  <label for="insurance_company">Insurance Company</label>
+                  <label for="insurance_company">Insurance Company (If none type None)</label>
                   <input type="text" class="form-control" id="insurance_company" name="insurance_company" value="{{ old('insurance_company') }}">
                 </div>
                 <div class="form-group">
-                  <label for="policy_number">Policy Number</label>
+                  <label for="policy_number">Policy Number (If none type None)</label>
                   <input type="text" class="form-control" id="policy_number" name="policy_number" value="{{ old('policy_number') }}">
                 </div>
                 <div class="float-right">
